@@ -14,8 +14,7 @@ function App() {
         .then(res => {
             // Handle success response
             setEmployees(prevState => (res.data.data))
-            console.log(res.data.data);
-            console.log(requestCount)
+            console.log(`All employees from DB ${res.data.data}`);
           })
           .catch(error => {
             // Handle error
@@ -24,13 +23,14 @@ function App() {
     }, [requestCount])
 
     //Add new employees to the DB, using Hook Form to catch
-    //the form input values
+    //the inputs value
     const addEmployee =(data, e) => {
         e.preventDefault();
         if(data){
             axios.post('https://employee-administration-bend.herokuapp.com/api/POST', data)
             .then((res => {
                 alert(`${data.name} was added to the employees list.`)
+                //Increment counter to re-render the component
                 setRequestCount(requestCount+1);
             }))
             .catch(err => {
@@ -45,6 +45,7 @@ function App() {
         let editableEmployee = document.querySelector(`[e_id="${e.currentTarget.value}"]`)
         let editableFields = editableEmployee.querySelectorAll('[type]')
         for( let i =0; i < editableFields.length; i++) {
+            //Check the update state to know what to do with the table row
             if(update){
                 axios.post("https://employee-administration-bend.herokuapp.com/api/UPDATE/", {
                     id: e.currentTarget.value,
@@ -69,7 +70,7 @@ function App() {
         }
     }
 
-    //Delete an employee from DB
+    //Delete an employee from DB based on target ID
     const deleteEmployee = (e) => {
         axios.delete("https://employee-administration-bend.herokuapp.com/api/DELETE/", {
                 data:{
@@ -77,6 +78,7 @@ function App() {
                 }
         })
         .then(res =>{
+            //Increment counter to re-render the component
             setRequestCount(requestCount+1);
         })
             .catch(err => err);;
@@ -111,8 +113,8 @@ function App() {
                                     <tr key={employee._id} e_id={employee._id}>
                                         <td>{index+1}</td>
                                         <td type={'name'} >{employee.name}</td>
-                                        <td type={'salary'} >{employee.salary}</td>
-                                        <td type={'age'} >{employee.age}</td>
+                                        <td type={'salary'} >{employee.salary} $</td>
+                                        <td type={'age'} >{employee.age} years old</td>
                                         <td>
                                             <button className="AdministrationPanel__edit" onClick={editEmployee} value={employee._id}>Edit</button>
                                             <button className="AdministrationPanel__delete" onClick={deleteEmployee} value={employee._id}>Delete</button>

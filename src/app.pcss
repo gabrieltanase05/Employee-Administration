@@ -13,6 +13,7 @@ input[type='text'], input[type='number'] {
   width: 47%;
   height: 30px;
   margin: 4px;
+  padding: 0 10px;
   @media screen and (min-width: 860px){
    width: 28%;
    height: 40px;
@@ -41,7 +42,7 @@ tbody {
   text-align: center;
 }
 table, th, td {
-  border: 1px solid black;
+  border: 1px solid #2A2C24;
   border-collapse: collapse;
 }
 tr td:last-child {
@@ -70,10 +71,13 @@ td {
   padding: 20px 0;
   &__container {
     width: 80%;
-    height: 100%;
+    height: auto;
     margin: 0 auto;
     @media screen and (min-width: 860px){
-      width: 65%;     
+      width: 65%;
+      padding: 20px 5px;
+      border-radius: 10px;
+      border: 2px solid #2A2C24;
     }
   }
   &__title {
