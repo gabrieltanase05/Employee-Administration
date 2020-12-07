@@ -14,7 +14,6 @@ function App() {
         .then(res => {
             // Handle success response
             setEmployees(prevState => (res.data.data))
-            console.log(`All employees from DB ${res.data.data}`);
           })
           .catch(error => {
             // Handle error
