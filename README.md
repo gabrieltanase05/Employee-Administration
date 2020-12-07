@@ -9,4 +9,5 @@ Technologies: `React.js`, `React Hooks`, `React-Form-Hooks`, `axios`, `Gulp`, `P
 **Compile PostCSS**
 `gulp start`
 
+For hosting was used Firebase
 **Hosting:** https://employees-administration.web.app/
