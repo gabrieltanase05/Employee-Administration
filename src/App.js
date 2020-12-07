@@ -10,7 +10,7 @@ function App() {
 
     useEffect(()=> {
         //Fetch the employees list from MongoDB
-        axios.get('http://localhost:8080/api/GET')
+        axios.get('https://employee-administration-bend.herokuapp.com/api/GET')
         .then(res => {
             // Handle success response
             setEmployees(prevState => (res.data.data))
@@ -28,7 +28,7 @@ function App() {
     const addEmployee =(data, e) => {
         e.preventDefault();
         if(data){
-            axios.post('http://localhost:8080/api/POST', data)
+            axios.post('https://employee-administration-bend.herokuapp.com/api/POST', data)
             .then((res => {
                 alert(`${data.name} was added to the employees list.`)
                 setRequestCount(requestCount+1);
@@ -46,7 +46,7 @@ function App() {
         let editableFields = editableEmployee.querySelectorAll('[type]')
         for( let i =0; i < editableFields.length; i++) {
             if(update){
-                axios.post("http://localhost:8080/api/UPDATE/", {
+                axios.post("https://employee-administration-bend.herokuapp.com/api/UPDATE/", {
                     id: e.currentTarget.value,
                     name: editableEmployee.querySelector(`[type="name"]`).innerHTML,
                     salary: editableEmployee.querySelector(`[type="salary"]`).innerHTML,
@@ -71,7 +71,7 @@ function App() {
 
     //Delete an employee from DB
     const deleteEmployee = (e) => {
-        axios.delete("http://localhost:8080/api/DELETE/", {
+        axios.delete("https://employee-administration-bend.herokuapp.com/api/DELETE/", {
                 data:{
                     id: e.currentTarget.value
                 }
