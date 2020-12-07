@@ -7,11 +7,7 @@
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.4.0",
     "axios": "^0.21.0",
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
     "cssnano": "^4.1.10",
-    "dotenv": "^8.1.0",
-    "express": "^4.17.1",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-cli": "^2.3.0",
@@ -19,10 +15,6 @@
     "gulp-postcss": "^9.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-sourcemaps": "^3.0.0",
-    "mongoose": "^5.7.1",
-    "morgan": "^1.10.0",
-    "nodemon": "^1.19.2",
-    "npm-run-all": "^4.1.5",
     "postcss": "^8.0.0",
     "postcss-nested": "^5.0.2",
     "postcss-nesting": "^7.0.1",
@@ -33,9 +25,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "npm-run-all --parallel backend react",
-    "backend" : "node backend/server.js",
-    "react": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
