@@ -100,8 +100,8 @@ function App() {
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Salary</th>
-                            <th>Age</th>
+                            <th>Salary ($)</th>
+                            <th>Age (years)</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -112,8 +112,8 @@ function App() {
                                     <tr key={employee._id} e_id={employee._id}>
                                         <td>{index+1}</td>
                                         <td type={'name'} >{employee.name}</td>
-                                        <td type={'salary'} >{employee.salary} $</td>
-                                        <td type={'age'} >{employee.age} years old</td>
+                                        <td type={'salary'} >{employee.salary}</td>
+                                        <td type={'age'} >{employee.age}</td>
                                         <td>
                                             <button className="AdministrationPanel__edit" onClick={editEmployee} value={employee._id}>Edit</button>
                                             <button className="AdministrationPanel__delete" onClick={deleteEmployee} value={employee._id}>Delete</button>
